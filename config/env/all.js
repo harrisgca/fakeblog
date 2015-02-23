@@ -31,7 +31,8 @@ module.exports = {
 			]
 		},
 		css: [
-			'public/modules/**/css/*.css'
+			'public/modules/**/css/*.css',
+			'public/modules/posts/css/*.css'
 		],
 		js: [
 			//I added this first line here, I also created the folder
