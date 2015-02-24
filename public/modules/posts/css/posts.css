@@ -1,3 +1,22 @@
 .wrap-text{
   white-space:pre-line;
 }
+
+.intro-header{
+  background-image: url('../img/bluewaterbeach.jpg');
+  /*background-attachment: scroll;*/
+  background-size: cover;
+  background-attachment: scroll;
+  text-align: center;
+  color:white;
+  max-width: 1900px;
+  max-height: 872px;
+}
+
+hr.small{
+  max-width: 100px;
+  margin: 15px auto;
+  border-width: 4px;
+/*  border-color: black;
+  color:black;*/
+}
