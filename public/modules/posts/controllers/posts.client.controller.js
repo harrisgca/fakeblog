@@ -24,6 +24,11 @@ angular.module('posts').controller('PostsController', ['$scope', '$stateParams',
 			});
 		};
 
+		// Create new Comment
+		$scope.createComment = function(){
+			alert('button works!');
+		}
+
 		// Remove existing Post
 		$scope.remove = function(post) {
 			if ( post ) { 

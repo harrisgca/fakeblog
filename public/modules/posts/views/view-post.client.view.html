@@ -23,4 +23,28 @@
 			<span data-ng-bind="post.user.displayName"></span>
 		</em>
 	</small>
+	
+	<hr>
+	<h2>Comments</h2>
+
+	<div data-ng-repeat="comment in post.comments">
+		<span data-ng-bind="comment.commenter"></span>
+		<p data-ng-bind="comment.body"></p>
+	</div>
+
+	<form class="form-horizontal" data-ng-submit="createComment()">
+		<div class="controls">
+		    <input type="text" data-ng-model="commentName" id="commentName" class="form-control" placeholder="Your name" required>
+		</div>
+
+		<div class="form-group">
+		    <div class="controls">
+		        <textarea data-ng-model="commentBody" id="commentBody" class="form-control" columns="5" rows="5" placeholder="Enter your comment here!" required>
+		        </textarea>
+		    </div>
+		    <button class="btn btn-success">Submit Comment</button>
+		</div>
+	</form>
+
+
 </section>

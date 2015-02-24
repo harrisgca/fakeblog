@@ -14,6 +14,9 @@ module.exports = function(app) {
 		.put(users.requiresLogin, posts.hasAuthorization, posts.update)
 		.delete(users.requiresLogin, posts.hasAuthorization, posts.delete);
 
+	app.route('/posts/:postId/comments')
+		.post(posts.comments.create);
+
 	// Finish by binding the Post middleware
 	app.param('postId', posts.postByID);
 };

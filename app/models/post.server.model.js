@@ -7,6 +7,23 @@ var mongoose = require('mongoose'),
 	Schema = mongoose.Schema;
 
 /**
+ * Comment Schema
+ */
+var CommentSchema = new Schema({
+	commenter: {
+		type: String,
+		default: '',
+		required: 'Please enter your name'
+	},
+	body: {
+		type: String,
+		default: '',
+		required: 'Please enter a comment'
+	}
+
+});
+
+/**
  * Post Schema
  */
 var PostSchema = new Schema({
@@ -16,7 +33,7 @@ var PostSchema = new Schema({
 		required: 'Please enter a title',
 		trim: true
 	},
-	body:{
+	body: {
 		type: String,
 		default: '',
 		requierd: 'Please enter text'
@@ -31,4 +48,5 @@ var PostSchema = new Schema({
 	}
 });
 
+mongoose.model('Comment', CommentSchema);
 mongoose.model('Post', PostSchema);
