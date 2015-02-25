@@ -24,10 +24,6 @@ angular.module('posts').controller('PostsController', ['$scope', '$stateParams',
 			});
 		};
 
-		// Create new Comment
-		$scope.createComment = function(){
-			alert('button works!');
-		}
 
 		// Remove existing Post
 		$scope.remove = function(post) {
@@ -55,6 +51,21 @@ angular.module('posts').controller('PostsController', ['$scope', '$stateParams',
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
 			});
+		};
+
+
+		// Create new Comment
+		$scope.createComment = function(){
+			var post = $scope.post
+
+			// console.log(post);
+
+			var comment = {
+				commentName : this.commentName,
+				commentBody : commentBody
+			}
+			console.log(comment);
+			comment.$save();
 		};
 
 		// Find a list of Posts
