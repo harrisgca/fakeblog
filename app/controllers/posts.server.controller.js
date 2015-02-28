@@ -26,13 +26,6 @@ exports.create = function(req, res) {
 	});
 };
 
-/**
- * Create a new comment
- */
-
-exports.createComment = function(req,res){
-	console.log('createComment func')
-};
 
 /**
  * Show the current Post

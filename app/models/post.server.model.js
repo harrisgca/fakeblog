@@ -53,5 +53,4 @@ var PostSchema = new Schema({
 	comments:[CommentSchema]
 });
 
-mongoose.model('Comment', CommentSchema);
 mongoose.model('Post', PostSchema);
