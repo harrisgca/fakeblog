@@ -20,9 +20,6 @@ angular.module('posts').config(['$stateProvider',
 		state('editPost', {
 			url: '/posts/:postId/edit',
 			templateUrl: 'modules/posts/views/edit-post.client.view.html'
-		}).
-		state('createComment', {
-			url: '/posts/:postId/comments'
-		});
+		})
 	}
 ]);

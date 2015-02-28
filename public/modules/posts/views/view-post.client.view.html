@@ -28,7 +28,8 @@
 	<h2>Comments</h2>
 
 	<div data-ng-repeat="comment in post.comments">
-		<span data-ng-bind="comment.commenter"></span>
+		<span data-ng-bind="comment.commenter"></span> | 
+		<span><em>Posted: {{comment.createdAt | date: 'medium'}}</em></span>
 		<p data-ng-bind="comment.body"></p>
 	</div>
 
@@ -42,7 +43,11 @@
 		        <textarea data-ng-model="commentBody" id="commentBody" class="form-control" columns="5" rows="5" placeholder="Enter your comment here!" required>
 		        </textarea>
 		    </div>
-		    <button class="btn btn-success">Submit Comment</button>
+		    <!-- <button class="btn btn-success">Submit Comment</button> -->
+		    <input value="Submit Comment" class="btn btn-success" type="Submit">
+		</div>
+		<div data-ng-show="error" class="text-danger">
+			<strong data-ng-bind="error"></strong>
 		</div>
 	</form>
 

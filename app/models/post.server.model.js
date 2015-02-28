@@ -19,6 +19,10 @@ var CommentSchema = new Schema({
 		type: String,
 		default: '',
 		required: 'Please enter a comment'
+	},
+	createdAt:{
+		type:Date,
+		default: Date.now
 	}
 
 });
@@ -36,7 +40,7 @@ var PostSchema = new Schema({
 	body: {
 		type: String,
 		default: '',
-		requierd: 'Please enter text'
+		required: 'Please enter text'
 	},
 	created: {
 		type: Date,
@@ -45,7 +49,8 @@ var PostSchema = new Schema({
 	user: {
 		type: Schema.ObjectId,
 		ref: 'User'
-	}
+	},
+	comments:[CommentSchema]
 });
 
 mongoose.model('Comment', CommentSchema);

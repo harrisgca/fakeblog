@@ -8,7 +8,7 @@ angular.module('posts').controller('PostsController', ['$scope', '$stateParams',
 		// Create new Post
 		$scope.create = function() {
 			// Create new Post object
-			var post = new Posts ({
+			var post = new Posts({
 				name: this.name,
 				body: this.body
 			});
@@ -27,11 +27,11 @@ angular.module('posts').controller('PostsController', ['$scope', '$stateParams',
 
 		// Remove existing Post
 		$scope.remove = function(post) {
-			if ( post ) { 
+			if (post) {
 				post.$remove();
 
 				for (var i in $scope.posts) {
-					if ($scope.posts [i] === post) {
+					if ($scope.posts[i] === post) {
 						$scope.posts.splice(i, 1);
 					}
 				}
@@ -55,17 +55,30 @@ angular.module('posts').controller('PostsController', ['$scope', '$stateParams',
 
 
 		// Create new Comment
-		$scope.createComment = function(){
-			var post = $scope.post
+		$scope.createComment = function() {
+			var post = $scope.post;
+			var createdAt = Date.now();
 
-			// console.log(post);
+			var newComment = {
+				commenter : this.commentName,
+				body : this.commentBody,
+				createdAt: createdAt
+			};
 
-			var comment = {
-				commentName : this.commentName,
-				commentBody : commentBody
-			}
-			console.log(comment);
-			comment.$save();
+			post.comments.push(newComment);
+
+			post.$update(function() {
+
+				//redirect
+				$location.path('posts/' + post._id);
+
+				//clear form fields
+				$scope.commentName = '';
+				$scope.commentBody = '';
+
+			}, function(errorResponse) {
+				$scope.error = errorResponse.data.message;
+			});
 		};
 
 		// Find a list of Posts
@@ -75,7 +88,7 @@ angular.module('posts').controller('PostsController', ['$scope', '$stateParams',
 
 		// Find existing Post
 		$scope.findOne = function() {
-			$scope.post = Posts.get({ 
+			$scope.post = Posts.get({
 				postId: $stateParams.postId
 			});
 		};
